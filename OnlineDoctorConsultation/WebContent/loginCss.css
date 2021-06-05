@@ -1,0 +1,80 @@
+/* body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+} */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+    font-size: 15px;
+    background-image:url("images/bg4.jpg") ;
+    background-size: 1500px 700px;
+    background-size: cover;
+  }
+/* .box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #191919;
+    text-align: center;
+} */
+.box{
+    width: 300px;
+    height: 350px;
+    color: rgb(8, 8, 8);
+    padding-top: 5px;
+    padding-left: 40px;
+    padding-bottom: 5px;
+    padding-right: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+    border-radius: 40px 0px;
+  
+ }
+.box h2{
+    font-family: sans-serif;
+    color: rgb(14, 1, 1);
+    font-weight: 100px;
+
+}
+.box input{
+    border: 0;
+    background: none;
+    color: white;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 10px 10px;
+    width: 255px;
+    border-radius: 24px;
+    align-content: center;
+    outline: none;
+}
+    
+::placeholder {
+    color: rgb(12, 1, 1);
+}
+.box button{
+    border: 0;
+    background: none;
+    margin: 15px;
+    /*text-align: center;*/
+    border: 2px solid white;
+    padding: 10px 10px;
+    width: 100px;
+    color: rgb(12, 1, 1);
+    border-radius: 24px;
+    outline: none;
+} 
+.box button:hover{
+    background-color: white ;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription</title>
+    <script>
+        function onValidate(){
+            PatientName=document.getElementById("Pname").value;
+            var  correct_way=/^[A-Za-z]+$/;
+            if (PatientName==null || PatientName==""){  
+                 alert("Name can't be blank");  
+                 return false;  
+            }
+            if(PatientName.match(correct_way)){
+                 true;
+            }
+            else{
+
+                 alert("The First name should not contain special Characters");
+                 return false;
+           }
+        }
+    </script>
+    <style>
+        body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: #34495e;
+              font-size: 12px;
+              background-image:url("images/bg4.jpg") ;
+              background-size: 1500px 700px;
+            }
+            .box{
+              width: 300px;
+              height: 350px;
+              color:white;
+              padding-top: 5px;
+              padding-left: 40px;
+              padding-bottom: 5px;
+              padding-right: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+              border-radius: 40px 0px;
+            }
+            button{
+            border: 0;
+            background: none;
+            /* margin: 15px; */
+            /*text-align: center;*/
+            border: 2px solid white;
+             /* padding: 0px 100px;  */
+            width: 200px;
+            color: white;
+            border-radius: 24px;
+            outline: none;
+         
+           }
+           button:hover{
+               background-color: white;
+               color: black;
+           }
+           .box h1{
+               text-align: center;
+           }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Prescription</h1>
+        <form action="">
+            <table>
+                <tr>
+                    <td><label for="">Patient Name</label></td>
+                    <td><input type="text" name="Pname" id="Pname" placeholder="Name"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Age</label></td>
+                    <td><input type="number" name="age" id="" placeholder="Age"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Blood Group</label></td>
+                    <td><input type="text" name="blood_group" id="" placeholder="BloodGroup"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Medicine Required</label></td>
+                    <td><textarea name="medicine" id="" cols="20" rows="4" placeholder="List of Medicine"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="">Doctor Message</label></td>
+                    <td><textarea name="message" id="" cols="20" rows="6" placeholder="Any suggestion or Message"></textarea></td>
+                </tr>
+            </table>
+                   <center><p><button type="submit" onclick="return onValidate()">Submit</button></p></center> 
+                
+            
+        </form>
+    </div>
+    
+</body>
+</html>

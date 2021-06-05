@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script>
+    function onValidate(){
+        var cardName=document.getElementById("cardName").value;
+        var cardNum=document.getElementById("cardNumber").value;
+        var cvv=document.getElementById("cvv").value;
+        var  correct_way=/^[A-Za-z\s]+$/;
+        var CVV=/^[0-9]{3,4}$/;
+            if (cardName==null || cardName==""){  
+                 alert("Name can't be blank");  
+                 return false;  
+            }
+            if(cardName.match(correct_way)){
+                 true;
+            }
+            else{
+
+                 alert("The First name should not contain special Characters");
+                 return false;
+            }
+            if(cardNum.length>16 || cardNum.length<16){
+                alert("Not a valid card number");
+                return false;
+            }
+            if(cvv.match(CVV)){
+                true;
+            }
+            else{
+                alert("Please enter a valid cvv number");
+            }
+            
+        }
+    </script>
+    <style>
+         body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: #34495e;
+              font-size: 12px;
+              background-image:url("images/bg4.jpg") ;
+              background-size: cover;
+            }
+            .box{
+              width: 350px;
+              height: 450px;
+              color:white;
+              padding-top: 5px;
+              padding-left: 40px;
+              padding-bottom: 5px;
+              padding-right: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+              border-radius: 40px 0px;
+            }
+            input,select{
+              margin-bottom: 20px;
+              padding: 6px;
+            }
+            button{
+            border: 0;
+            background: none;
+            /* margin: 15px; */
+            /*text-align: center;*/
+            border: 2px solid white;
+             /* padding: 0px 100px;  */
+            width: 200px;
+            color: white;
+            border-radius: 24px;
+            outline: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 7px;
+           }
+           button:hover{
+               background-color: white;
+               color: black;
+           }
+           .box h1{
+               text-align: center;
+           }
+    </style>
+</head>
+<body>
+    <div class=box>
+    <form action="PaymentSuccessfull.html">
+        <h1>Payment</h1>
+        <table>
+            <tr>
+                <td><label for="">Consultation Fee</label></td>
+                <td><input type="text" name="fee" id="fee" value="500" readonly></td>
+            </tr>
+            
+        
+                <tr>
+                    <td>Card Type</td>
+                    <td>
+                        <select name="card_type" id="">
+                        <option value="">--select option--</option>
+                        <option value="Credit_card">Credit card</option>
+                        <option value="Debit_card">Debit card</option>
+                        <option value="visa">Visa</option>
+                        <option value="master_card">Master card</option>
+                        <option value="rupay">Rupay</option>
+                        </select>
+                    </td>
+                </tr>
+            <tr>
+                <td><label for="">Name as on the card</label></td>
+                <td><input type="text" name="cardName" id="cardName" placeholder="Name" required></td>
+            </tr>
+            <tr>
+                <td><label for="">Card Number</label></td>
+                <td><input type="number" name="cardNumber" id="cardNumber" placeholder="" required></td>
+            </tr>
+            <tr>
+                <td><label for="">Expiry Date</label></td>
+                <td><input type="date" name="expiry_date" id="" required></td>
+            </tr>
+            <tr>
+                <td><label for="">CVV</label></td>
+                <td><input type="number" name="cvv" id="cvv" placeholder="_ _ _/_" required></td>
+            </tr>
+        </table>
+              <center><button type="submit" onclick="return onValidate()">Pay Now</button></center>
+                
+            
+        
+      </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pangolin&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pangolin&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
+    <script>
+        function onValidate(){
+            PatientID=document.getElementById("Pid").value;
+            PatientName=document.getElementById("PName").value;
+            HHistory=document.getElementById("H_History").value;
+            CHistory=document.getElementById("C_History").value;
+
+            var  correct_way=/^[A-Za-z]/;
+            if(PatientID==null || PatientID==""){  
+                 alert("Patient ID cannot be blank");  
+                 return false;  
+            }
+            if (PatientName==null || PatientName==""){  
+                 alert("Patient Name cannot be blank");  
+                 return false;  
+            }
+            if(PatientName.match(correct_way)){
+                 true;
+            }
+            else{
+
+                 alert("The Patient name should not contain special Characters");
+                 return false;
+           }
+           if(HHistory.length>80){
+               alert("you can't enter more than 80 characters in Health History");
+               return false;
+           }
+           if(CHistory.length>80){
+               alert("you can't enter more than 80 characters in Consultation History");
+               return false;
+           }   
+        }
+
+    </script>
+    <style>
+        body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: #34495e;
+              font-size: 12px;
+              background-image:url("images/bg4.jpg") ;
+              background-size: cover;
+            }
+        .box{
+              width: 350px;
+              height: 630px;
+              color:white;
+              padding-top: 5px;
+              padding-left: 40px;
+              padding-bottom: 5px;
+              padding-right: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+              border-radius: 40px 0px;
+            }
+            input,select{
+              margin-bottom: 20px;
+              padding: 6px;
+            }
+            tr{
+                font-size: 14px;
+            }
+           button{
+            border: 0;
+            background: none;
+            /* margin: 15px; */
+            /*text-align: center;*/
+            border: 2px solid white;
+             /* padding: 0px 100px;  */
+            width: 200px;
+            color: white;
+            border-radius: 24px;
+            outline: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 7px;
+           }
+           button:hover{
+               background-color: white;
+               color: black;
+           }
+    </style>
+</head>
+<body>
+    <div class=box>
+    <h1><center>Book Appointment</center></h1>
+    <hr>
+    <form action="./BookAppointment" method="post">
+        <table>
+            <h2>Appointment Information</h2>
+            <hr>
+            <tr>
+                <td><label for="">Patient ID</label></td>
+                <td><input type="number" name="Pid" id="Pid"  required></td>
+            </tr>
+            <tr>
+                <td><label for="">Patient Name</label></td>
+                <td><input type="text" name="PName" id="PName"  required></td>
+            </tr>
+            <tr>
+                <td><label for="">Doctor Name</label></td>
+                <td><select id="DNames" name="DNames">
+                    <option value="DName">--Select Doctor here--</option>
+                    <option value="1">Dr. Kashyap Kumar(General Physician)</option>
+                    <option value="2">Dr.Girish Babu(Pediatricians)</option>
+                    <option value="3">Dr.Srikanth Hegde(Cardiologist)</option>
+                    <option value="4">Dr.Nirmala H T(Gynecologist)</option>
+                    <option value="5">Dr.Ananya L U(Dermatologist)</option>
+                    
+                    
+                    
+                </select></td>
+                
+            </tr>
+            <tr>
+                <td><label for="">Appointment Date</label></td>
+                <td><input type="date" name="Adate" id="Adate" required></td>
+            </tr>
+            <tr>
+                <td><label for="">Health History</label></td>
+                <td><textarea name="H_History" id="H_History" cols="25" rows="6" placeholder="Enter your health History" required></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="">Consultation History</label></td>
+                <td><textarea name="C_History" id="C_History" cols="25" rows="6" placeholder="Enter your Consultation History" required></textarea></td>
+            </tr>
+        <table>
+           <tr>
+                <td><button type="submit" onclick="return onValidate()">Book Appointment</button></td>
+            </tr>
+       
+        </table>
+    </form>
+</div>   
+</body>
+</html>

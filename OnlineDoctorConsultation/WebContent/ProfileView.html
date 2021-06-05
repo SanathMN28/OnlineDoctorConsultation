@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>  
+        function validateform(){  
+        var name=document.getElementById("username").value;  
+        var password=document.getElementById("pwd").value
+        var cPassword=document.getElementById("cpwd").value;
+        // var check= /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%&*]{6,20}$/; 
+          
+        if (name==null || name==""){  
+          alert("Name can't be blank");  
+         return false;  
+        }else if(password.length<8){  
+          alert("Password must be at least 8 characters long.");  
+         return false;  
+          } 
+          else if(password.search(/[0-9]/)== -1){
+            alert("Atleast 1 numeric value must be there");
+            return false;
+          } 
+          else if(password.search(/[a-z]/)== -1){
+            alert("Atleast 1 small letter must be there");
+            return false;
+          }
+          else if(password.search(/[A-Z]/)== -1){
+            alert("Atleast 1 capital letter must be there");
+            return false;
+          }
+          else if(password.search(/[!\@\$\#\^\_\+\;\:\%]/)== -1){
+            alert("Atleast 1 special character must be there(!,@,#,$,^,_,+,;,:,%)");
+            return false;
+          }
+          else if(password!=cPassword){
+              alert("Password did not match");
+          }
+          else{
+              alert("Password created successfully");
+          }
+
+        }  
+        </script> 
+    <style>
+         body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: #34495e;
+              font-size: 12px;
+              background-image:url("images/bg4.jpg") ;
+              background-size: cover;
+            }
+            .box{
+              width: 350px;
+              height: 600px;
+              color:white;
+              padding-top: 5px;
+              padding-left: 40px;
+              padding-bottom: 5px;
+              padding-right: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+              border-radius: 40px 0px;
+            }
+            button{
+            border: 0;
+            background: none;
+            /* margin: 15px; */
+            /*text-align: center;*/
+            border: 2px solid white;
+             /* padding: 0px 100px;  */
+            width: 120px;
+            color: white;
+            border-radius: 24px;
+            outline: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 7px;
+            
+            }
+            input{
+              margin-bottom: 20px;
+              padding: 6px;
+            }
+           button:hover{
+               background-color: white;
+               color: black;
+           }
+           .box h1{
+               text-align: center;
+           }
+    </style>
+</head>
+<body>
+    <div class=box>
+        <h1>Patient View</h1>
+    <form action="./UpdatePatient" method="post">
+          <table>
+          <tr>
+                <td><label for="">ID</label></td>
+                <td><input type="number" name="id" id="id" placeholder="Patient ID" required></td>
+                </tr>
+            <tr>
+                <td><label for="">Name</label></td>
+                <td><input type="text" name="name" id="name" placeholder="Name" required></td>
+                </tr>
+                <tr>
+                  <td><label for="">Contact</label></td>
+                  <td><input type="number" name="contact" id="contact" placeholder="Contact" required></td>
+                </tr>
+                <tr>
+                  <td><label for="">Location</label></td>
+                  <td><input type="text" name="location" id="location" placeholder="Location" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">New Password</label></td>
+                    <td><input type="password" name="pwd" id="pwd" placeholder="password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Confirm Password</label></td>
+                    <td><input type="password" name="cpwd" id="cpwd" placeholder="Confirm password" required></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" onclick="return validateform()">Save</button></td>
+                    <td><a href="PatientDashboard.jsp"><button type="button">Back</button></a></td>
+                </tr>
+      </table>
+    </form>
+</div> 
+    
+</body>
+</html>
